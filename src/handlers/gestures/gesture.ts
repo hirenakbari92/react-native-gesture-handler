@@ -227,11 +227,13 @@ export abstract class BaseGesture<
   }
 
   onTouchesCancelled(callback: TouchEventHandlerType) {
+    console.log('gesture-230');
     this.config.needsPointerData = true;
     this.handlers.onTouchesCancelled = callback;
     this.handlers.isWorklet[CALLBACK_TYPE.TOUCHES_CANCELLED] =
       this.isWorklet(callback);
 
+      console.log('gesture-236');
     return this;
   }
 

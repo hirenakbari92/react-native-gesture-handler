@@ -229,8 +229,8 @@ function attachHandlers({
     preparedGesture.animatedHandlers.value = gesture
       .filter(isAnimatedGesture)
       .map((g) => g.handlers) as unknown as HandlerCallbacks<
-      Record<string, unknown>
-    >[];
+        Record<string, unknown>
+      >[];
   }
 }
 
@@ -292,8 +292,8 @@ function updateHandlers(
       const newHandlersValue = preparedGesture.config
         .filter((g) => g.shouldUseReanimated) // ignore gestures that shouldn't run on UI
         .map((g) => g.handlers) as unknown as HandlerCallbacks<
-        Record<string, unknown>
-      >[];
+          Record<string, unknown>
+        >[];
 
       // if amount of gesture configs changes, we need to update the callbacks in shared value
       let shouldUpdateSharedValue =
@@ -332,7 +332,7 @@ function needsToReattach(
     if (
       gesture[i].handlerName !== preparedGesture.config[i].handlerName ||
       gesture[i].shouldUseReanimated !==
-        preparedGesture.config[i].shouldUseReanimated
+      preparedGesture.config[i].shouldUseReanimated
     ) {
       return true;
     }
@@ -381,6 +381,7 @@ function getHandler(
     case CALLBACK_TYPE.TOUCHES_UP:
       return gesture.onTouchesUp;
     case CALLBACK_TYPE.TOUCHES_CANCELLED:
+      console.log('GestureDetector-384');
       return gesture.onTouchesCancelled;
   }
 }
@@ -558,9 +559,9 @@ function validateDetectorChildren(ref: any) {
     const wrapType =
       REACT_NATIVE_VERSION.minor > 63 || REACT_NATIVE_VERSION.major > 0
         ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          ref._reactInternals.elementType
+        ref._reactInternals.elementType
         : // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          ref._reactInternalFiber.elementType;
+        ref._reactInternalFiber.elementType;
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     let instance =
       RNRenderer.findHostInstance_DEPRECATED(
@@ -626,8 +627,8 @@ export const GestureDetector = (props: GestureDetectorProps) => {
     },
     onGestureHandlerStateChange: isExperimentalWebImplementationEnabled()
       ? (e: HandlerStateChangeEvent<unknown>) => {
-          onGestureHandlerEvent(e.nativeEvent);
-        }
+        onGestureHandlerEvent(e.nativeEvent);
+      }
       : undefined,
   });
 
@@ -748,7 +749,7 @@ export const GestureDetector = (props: GestureDetectorProps) => {
           console.error(
             tagMessage(
               'GestureDetector has received a child that may get view-flattened. ' +
-                '\nTo prevent it from misbehaving you need to wrap the child with a `<View collapsable={false}>`.'
+              '\nTo prevent it from misbehaving you need to wrap the child with a `<View collapsable={false}>`.'
             )
           );
         }

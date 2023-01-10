@@ -97,7 +97,9 @@ export function onGestureHandlerEvent(
           handler.handlers?.onTouchesUp?.(event, manager);
           break;
         case TouchEventType.TOUCHES_CANCELLED:
+          console.log('eventReceiver-100', event, manager);
           handler.handlers?.onTouchesCancelled?.(event, manager);
+          console.log('eventReceiver-102', event, manager);
           break;
       }
     } else {
