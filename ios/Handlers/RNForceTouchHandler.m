@@ -40,6 +40,7 @@ static const BOOL defaultFeedbackOnActivation = NO;
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
   if (_firstTouch) {
+    print("RNForceNative-43")
     // ignore rest of fingers
     return;
   }
@@ -54,6 +55,7 @@ static const BOOL defaultFeedbackOnActivation = NO;
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
   if (![touches containsObject:_firstTouch]) {
+    print("RNForceNative-58")
     // Considered only the very first touch
     return;
   }
@@ -97,6 +99,7 @@ static const BOOL defaultFeedbackOnActivation = NO;
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
   if (![touches containsObject:_firstTouch]) {
+    print("RNForceNative-102")
     // Considered only the very first touch
     return;
   }

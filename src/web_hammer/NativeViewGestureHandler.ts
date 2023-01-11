@@ -11,6 +11,7 @@ class NativeViewGestureHandler extends PressGestureHandler {
 
   onRawEvent(ev: HammerInputExt) {
     super.onRawEvent(ev);
+    console.log("rmv-NativeViewGestureHandler-14",ev)
     if (!ev.isFinal) {
       // if (this.ref instanceof ScrollView) {
       if (TEST_MIN_IF_NOT_NAN(VEC_LEN_SQ({ x: ev.deltaX, y: ev.deltaY }), 10)) {
@@ -19,6 +20,7 @@ class NativeViewGestureHandler extends PressGestureHandler {
           const gestures = Object.values(NodeManager.getNodes()).filter(
             (gesture) => {
               const { handlerTag, view, isGestureRunning } = gesture;
+              console.log("rmv-NativeViewGestureHandler-23",handlerTag !== this.handlerTag && isGestureRunning && gesture instanceof DiscreteGestureHandler && view && this.view.contains(view))
               return (
                 // Check if this gesture isn't self
                 handlerTag !== this.handlerTag &&
@@ -38,8 +40,13 @@ class NativeViewGestureHandler extends PressGestureHandler {
             // TODO: Bacon: Send some cached event.
             gesture.forceInvalidate(ev);
           }
+        } else {
+          console.log("rmv-NativeViewGestureHandler-43",this)
         }
       }
+    }
+    else {
+      console.log("rmv-NativeViewGestureHandler-48",ev)
     }
   }
 }

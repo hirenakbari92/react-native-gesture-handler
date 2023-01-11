@@ -24,6 +24,7 @@ function changeEventCalculator(
       forceChange: current.force - previous.force,
     };
   }
+  console.log('forceTouchGesture.ts-27', current, changePayload)
 
   return { ...current, ...changePayload };
 }

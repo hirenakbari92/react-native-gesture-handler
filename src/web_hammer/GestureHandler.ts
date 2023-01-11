@@ -414,6 +414,7 @@ abstract class GestureHandler {
 
       if (!this.isDiscrete) {
         if (this.isGestureRunning) {
+          console.log("rmv-GestureHandler-417",this)
           return true;
         }
         // The built-in hammer.js "waitFor" doesn't work across multiple views.

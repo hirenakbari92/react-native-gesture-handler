@@ -672,6 +672,8 @@ export const GestureDetector = (props: GestureDetectorProps) => {
 
       state.previousViewTag = viewTag;
       state.forceReattach = forceReattach;
+
+      console.log("rmv-GestureDetector-676", state, forceReattach, skipConfigUpdate)
       if (forceReattach) {
         forceRender();
       }
