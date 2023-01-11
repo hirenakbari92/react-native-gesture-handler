@@ -20,7 +20,7 @@ class NativeViewGestureHandler extends PressGestureHandler {
           const gestures = Object.values(NodeManager.getNodes()).filter(
             (gesture) => {
               const { handlerTag, view, isGestureRunning } = gesture;
-              console.log("rmv-NativeViewGestureHandler-23",handlerTag !== this.handlerTag && isGestureRunning && gesture instanceof DiscreteGestureHandler && view && this.view.contains(view))
+              console.log("rmv-NativeViewGestureHandler-23",handlerTag !== this.handlerTag && isGestureRunning && gesture instanceof DiscreteGestureHandler && view)
               return (
                 // Check if this gesture isn't self
                 handlerTag !== this.handlerTag &&
